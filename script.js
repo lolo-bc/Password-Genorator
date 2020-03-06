@@ -17,9 +17,14 @@ var specials = [ '\u0022', '\u0023', '\u0024', '\u0025', '\u0026', '\u0027', '\u
 // Write password to the #password input
 function writePassword() {
 
-  
+  usersPW = "";  
+
   var lengthOfPw = prompt("How many characters would you like your password to be?");
- 
+  
+  if (lengthOfPw == null) {
+    return;
+  }
+
   if (parseInt(lengthOfPw) < 8) {
     alert("Password must be at least 8 characters");
   } else {
@@ -50,11 +55,13 @@ function writePassword() {
       for (i = 0; i < parseInt(lengthOfPw); i++) {
         var charOptions = usersChoice[Math.floor(usersChoice.length * Math.random())];
         usersPW = usersPW + charOptions;
-        passwordText.value = usersPW; 
-        }
-
       }
-
+      passwordText.value = usersPW; 
+      
     }
 
+  }
+
 }
+
+
